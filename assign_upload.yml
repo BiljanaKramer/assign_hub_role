@@ -11,30 +11,30 @@
   gather_facts: false
 
   tasks:
-    #- name: Assign upload
-    #  ansible.hub.team_roles:
-    #    team: "MW"
-    #    role: "galaxy.execution_environment_admin"
-    #    targets:
-    #      collection_namespaces:
-    #        - "middleware"
-    #    state: present
-    #    ah_host: "{{ aap_hostname }}"
-    #    ah_username: "{{ aap_username }}"
-    #    ah_password: "{{ aap_password }}"
-    #    validate_certs: "{{ aap_validate_certs }}"
-
-    - name: Test this
-      ansible.hub.ah_role:
-        name: galaxy.operators
-        perms:
-          - add_user
-          - change_user
-          - delete_user
-          - view_user
+    - name: Assign upload
+      ansible.hub.team_roles:
+        team: "MW"
+        role: "galaxy.ansible_repository_owner"
+        targets:
+          collection_namespaces:
+            - "middleware"
         state: present
         ah_host: "{{ aap_hostname }}"
         ah_username: "{{ aap_username }}"
         ah_password: "{{ aap_password }}"
         validate_certs: "{{ aap_validate_certs }}"
+
+    #- name: Test this
+    #  ansible.hub.ah_role:
+    #    name: galaxy.operators
+    #    perms:
+    #      - add_user
+    #      - change_user
+    #      - delete_user
+    #      - view_user
+    #    state: present
+    #    ah_host: "{{ aap_hostname }}"
+    #    ah_username: "{{ aap_username }}"
+    #    ah_password: "{{ aap_password }}"
+    #    validate_certs: "{{ aap_validate_certs }}"
       

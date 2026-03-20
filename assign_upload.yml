@@ -14,7 +14,7 @@
     - name: Assign upload
       ansible.hub.team_roles:
         team: MW
-        role: "Organization Auditor"
+        role: "test"
         targets:
           collection_namespaces:
             - middleware

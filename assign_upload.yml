@@ -1,0 +1,25 @@
+---
+- name: Case Test
+  hosts: localhost
+  connection: local
+  vars:
+    aap_username: "admin"
+    aap_password: "gateway"
+    aap_hostname: "vm-10-1-230-59.ans.cee.ral3.lab.eng.rdu2.redhat.com"
+    aap_validate_certs: "false"
+    aap_request_timeout: 30
+  gather_facts: false
+
+  tasks:
+    - name: Assign upload
+      ansible.hub.team_roles:
+        team: "MW"
+        role: "galaxy.execution_environment_admin"
+        targets:
+          collection_namespaces:
+            - "middleware"
+        state: present
+        ah_host: "{{ aap_hostname }}"
+        ah_username: "{{ aap_username }}"
+        ah_password: "{{ aap_password }}"
+        validate_certs: "{{ aap_validate_certs }}"

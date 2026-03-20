@@ -14,7 +14,7 @@
     - name: Assign upload
       ansible.hub.team_roles:
         team: MW
-        role: galaxy.collection_namespace_owner
+        role: galaxy.MAN_collection_upload
         targets:
           collection_namespaces:
             - middleware

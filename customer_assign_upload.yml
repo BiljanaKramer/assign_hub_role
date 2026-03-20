@@ -23,7 +23,7 @@
         ah_host: "{{ aap_hostname }}"
         ah_username: "{{ aap_username }}"
         ah_password: "{{ aap_password }}"
-        ah_validate_certs: "{{ aap_validate_certs }}"
+        validate_certs: "{{ aap_validate_certs }}"
 
     - name: Assign approve role to MW team on staging repository
       ansible.hub.team_roles:
@@ -36,4 +36,4 @@
         ah_host: "{{ aap_hostname }}"
         ah_username: "{{ aap_username }}"
         ah_password: "{{ aap_password }}"
-        ah_validate_certs: "{{ aap_validate_certs }}"
+        validate_certs: "{{ aap_validate_certs }}"

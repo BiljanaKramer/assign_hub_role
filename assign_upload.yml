@@ -13,11 +13,11 @@
   tasks:
     - name: Assign upload
       ansible.hub.team_roles:
-        team: "MW"
-        role: "galaxy.ansible_repository_owner"
+        team: MW
+        role: galaxy.collection_namespace_owner
         targets:
           collection_namespaces:
-            - "middleware"
+            - middleware
         state: present
         ah_host: "{{ aap_hostname }}"
         ah_username: "{{ aap_username }}"

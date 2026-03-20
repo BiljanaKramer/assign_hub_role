@@ -30,9 +30,8 @@
         team: MW
         role_definition: galaxy.MAN_collection_approve
         assignment_objects:
-          - name: MAN_staging_Middleware
+          - object_ansible_id: 019d0bab-7de7-7cfb-8a8f-155aa844af32
             # The resource type maps to the Gateway API slug for Hub repositories
-            type: "Repository" 
         state: present
         aap_hostname: "{{ aap_hostname }}"
         aap_username: "{{ aap_username }}"

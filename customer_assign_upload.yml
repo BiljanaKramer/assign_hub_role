@@ -1,0 +1,39 @@
+---
+- name: Case Test
+  hosts: localhost
+  connection: local
+  vars:
+    aap_username: "admin"
+    aap_password: "gateway"
+    # IMPORTANT: Added https:// as the Hub API strictly requires the full URL scheme
+    aap_hostname: "vm-10-1-230-59.ans.cee.ral3.lab.eng.rdu2.redhat.com" 
+    aap_validate_certs: false
+    aap_request_timeout: 30
+  gather_facts: false
+
+  tasks:
+    - name: Assign upload role to MW team on middleware namespace
+      ansible.hub.team_roles:
+        team: "MW"
+        role: "galaxy.MAN_collection_upload"
+        targets:
+          collection_namespaces:
+            - "middleware"
+        state: present
+        ah_host: "{{ aap_hostname }}"
+        ah_username: "{{ aap_username }}"
+        ah_password: "{{ aap_password }}"
+        ah_validate_certs: "{{ aap_validate_certs }}"
+
+    - name: Assign approve role to MW team on staging repository
+      ansible.hub.team_roles:
+        team: "MW"
+        role: "galaxy.MAN_collection_approve"
+        targets:
+          collection_repositories:
+            - "MAN_staging_Middleware"
+        state: present
+        ah_host: "{{ aap_hostname }}"
+        ah_username: "{{ aap_username }}"
+        ah_password: "{{ aap_password }}"
+        ah_validate_certs: "{{ aap_validate_certs }}"

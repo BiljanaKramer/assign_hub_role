@@ -32,7 +32,7 @@
         assignment_objects:
           - name: MAN_staging_Middleware
             # The resource type maps to the Gateway API slug for Hub repositories
-            type: "repositories" 
+            type: "Repository" 
         state: present
         aap_hostname: "{{ aap_hostname }}"
         aap_username: "{{ aap_username }}"

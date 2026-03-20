@@ -29,8 +29,9 @@
       ansible.hub.team_roles:
         team: "MW"
         role: "galaxy.MAN_collection_approve"
-        #targets:
-        #  collection_repositories:
+        targets:
+          collection_namespaces:
+            - "middleware"
         #    - "MAN_staging_Middleware"
         state: present
         ah_host: "{{ aap_hostname }}"

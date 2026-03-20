@@ -31,7 +31,7 @@
         role_definition: galaxy.MAN_collection_approve
         assignment_objects:
           - object_ansible_id: 019d0bab-7de7-7cfb-8a8f-155aa844af32
-            object_type: hub_repository
+            type: hub_repository
             # The resource type maps to the Gateway API slug for Hub repositories
         state: present
         aap_hostname: "{{ aap_hostname }}"

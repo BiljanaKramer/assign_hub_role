@@ -25,16 +25,30 @@
         ah_password: "{{ aap_password }}"
         validate_certs: "{{ aap_validate_certs }}"
 
-    - name: Assign approve role to MW team on staging repository
-      ansible.hub.team_roles:
-        team: "MW"
-        role: "galaxy.MAN_collection_approve"
-        targets:
-          collection_namespaces:
-            - "middleware"
-        #    - "MAN_staging_Middleware"
+    - name: Assign custom Hub Repository role to Team via CaC
+      ansible.platform.role_team_assignment:
+        team: MW
+        role_definition: galaxy.MAN_collection_approve
+        assignment_objects:
+          - name: MAN_staging_Middleware
+            # The resource type maps to the Gateway API slug for Hub repositories
+            type: "ansiblerepositories" 
         state: present
-        ah_host: "{{ aap_hostname }}"
-        ah_username: "{{ aap_username }}"
-        ah_password: "{{ aap_password }}"
-        validate_certs: "{{ aap_validate_certs }}"
+        aap_hostname: "{{ aap_hostname }}"
+        aap_username: "{{ aap_username }}"
+        aap_password: "{{ aap_password }}"
+        aap_validate_certs: "{{ aap_validate_certs }}"
+
+    #- name: Assign approve role to MW team on staging repository
+    #  ansible.hub.team_roles:
+    #    team: "MW"
+    #    role: "galaxy.MAN_collection_approve"
+    #    targets:
+    #      collection_namespaces:
+    #        - "middleware"
+    #    #    - "MAN_staging_Middleware"
+    #    state: present
+    #    ah_host: "{{ aap_hostname }}"
+    #    ah_username: "{{ aap_username }}"
+    #    ah_password: "{{ aap_password }}"
+    #    validate_certs: "{{ aap_validate_certs }}"
